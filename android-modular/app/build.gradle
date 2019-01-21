@@ -1,0 +1,53 @@
+apply from: "${rootProject.rootDir}/common.gradle"
+project.ext.setAppDefaultConfig project
+
+android {
+
+    defaultConfig {
+
+        versionCode 1
+        versionName "1.0"
+
+    }
+    signingConfigs {
+        release {
+            storeFile file("../sign/topband_system.keystore")
+            keyAlias "KEY"
+            keyPassword "topband123"
+            storePassword "topband123"
+        }
+        debug {
+            storeFile file("../sign/topband_system.keystore")
+            keyAlias "KEY"
+            keyPassword "topband123"
+            storePassword "topband123"
+        }
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+           signingConfig signingConfigs.debug
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation rootProject.ext.dependencies["android-native-view"]["appcompat-v7"]
+    implementation 'cn.simonlee.widget:scrollpicker:1.0.10'
+    if (rootProject.ext.isSettingDebug) {
+        implementation project(':setting')
+    }
+    if (rootProject.ext.isCookBookDebug) {
+        implementation project(':cookbook')
+    }
+    if (rootProject.ext.isMyDeviceDebug) {
+        implementation project(':mydevice')
+    }
+}

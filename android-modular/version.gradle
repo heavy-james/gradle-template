@@ -1,0 +1,47 @@
+ext {
+    isSettingDebug = true
+    isCookBookDebug = true
+    isMyDeviceDebug = true
+    android = [
+            applicationId    : "com.device.marskitchendevice",
+            compileSdkVersion: 27,
+            minSdkVersion    : 19,
+            targetSdkVersion : 22,
+            versionCode      : 1,
+            versionName      : "HXRV01R01C00B01",
+            supportVersion   : "27.1.1",
+            constraintVersion: "1.1.3"
+    ]
+
+    dependencies = [
+            "swipeback"                    : "me.yokeyword:fragmentation-swipeback:1.3.4",
+            "greendao"                     : "org.greenrobot:greendao:3.2.2",
+            "fragmentation"                : "me.yokeyword:fragmentation:1.3.4",//fragment框架
+            "glide"                        : "com.github.bumptech.glide:glide:3.8.0",
+            "logger"                       : "com.orhanobut:logger:2.2.0",
+            "eventbus"                     : "org.greenrobot:eventbus:3.1.1",
+            "BaseRecyclerViewAdapterHelper": "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30",//万能的recyclerview适配器
+            "arouter"                      : ["arouter-api"     : "com.alibaba:arouter-api:1.4.1",
+                                              "arouter-compiler": "com.alibaba:arouter-compiler:1.2.2"],
+            "android-native-view"          : ["appcompat-v7"     : "com.android.support:appcompat-v7:${android.supportVersion}",
+                                              "recyclerview-v7"  : "com.android.support:recyclerview-v7:${android.supportVersion}",
+                                              "support-v4"       : "com.android.support:support-v4:${android.supportVersion}",
+                                              "design"           : "com.android.support:design:${android.supportVersion}",
+                                              "cardview-v7"      : "com.android.support:cardview-v7:${android.supportVersion}",
+                                              "constraint-layout": "com.android.support.constraint:constraint-layout:${android.constraintVersion}"//约束布局
+            ],
+            "rx"                           : ["rxandroid": "io.reactivex.rxjava2:rxandroid:2.0.2",
+                                              "rxjava"   : "io.reactivex.rxjava2:rxjava:2.2.0",
+                                              "rxbinding": 'com.jakewharton.rxbinding2:rxbinding:2.1.1'//rx扩展插件
+            ],
+            "retrofit2"                    : ["retrofit2:converter-gson"   : "com.squareup.retrofit2:converter-gson:2.3.0",
+                                              "retrofit2:converter-scalars": "com.squareup.retrofit2:converter-scalars:2.3.0",
+                                              "retrofit2"                  : "com.squareup.retrofit2:retrofit:2.4.0",
+                                              "adapter-rxjava2"            : "com.squareup.retrofit2:adapter-rxjava2:2.3.0"],
+            "logging-interceptor"          : "com.squareup.okhttp3:logging-interceptor:3.8.1",
+            "Android-PickerView"           : "com.contrarywind:Android-PickerView:4.1.6",
+            "fragment-dialog"              : "com.topband.lib:fragment-dialog:1.0.2@aar"
+    ]
+
+    archLifecycleVersion = "1.1.0"
+}

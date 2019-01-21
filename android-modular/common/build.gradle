@@ -1,0 +1,51 @@
+apply from: "${rootProject.rootDir}/common.gradle"
+project.ext.setLibDefaultConfig project
+
+android {
+
+    defaultConfig {
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            postprocessing {
+                removeUnusedCode false
+                removeUnusedResources false
+                obfuscate false
+                optimizeCode false
+                proguardFile 'proguard-rules.pro'
+            }
+        }
+    }
+
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    api rootProject.ext.dependencies["android-native-view"]["appcompat-v7"]
+    api rootProject.ext.dependencies["android-native-view"]["recyclerview-v7"]
+    api rootProject.ext.dependencies["android-native-view"]["support-v4"]
+    api rootProject.ext.dependencies["android-native-view"]["design"]
+    api rootProject.ext.dependencies["android-native-view"]["cardview-v7"]
+    api rootProject.ext.dependencies["android-native-view"]["constraint-layout"]
+    api rootProject.ext.dependencies["rx"]["rxandroid"]
+    api rootProject.ext.dependencies["rx"]["rxjava"]
+    api rootProject.ext.dependencies["rx"]["rxbinding"]
+    api rootProject.ext.dependencies["retrofit2"]["retrofit2:converter-scalars"]
+    api rootProject.ext.dependencies["retrofit2"]["retrofit2:converter-gson"]
+    api rootProject.ext.dependencies["retrofit2"]["retrofit2"]
+    api rootProject.ext.dependencies["retrofit2"]["adapter-rxjava2"]
+    api rootProject.ext.dependencies["logging-interceptor"]
+    api rootProject.ext.dependencies["swipeback"]
+    api rootProject.ext.dependencies["greendao"]
+    api rootProject.ext.dependencies["logger"]
+    api rootProject.ext.dependencies["glide"]
+    api rootProject.ext.dependencies["fragmentation"]
+    api rootProject.ext.dependencies["eventbus"]
+    api rootProject.ext.dependencies["Android-PickerView"]
+    api rootProject.ext.dependencies["arouter"]["arouter-api"]
+    api rootProject.ext.dependencies["BaseRecyclerViewAdapterHelper"]
+    api rootProject.ext.dependencies["fragment-dialog"]
+}
